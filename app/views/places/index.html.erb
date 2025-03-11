@@ -1,12 +1,13 @@
 <h1>Places</h1>
 
-<ul>
+<ul class="list-group">
+<div class="w-50 p-3">
   <% for place in @places %>
-  <ol class="list-group list-group-numbered">
-  <li><a href="/places/<%= place["id"] %>" class="list-group-item"><%= place["name"] %></a></li>
+  <a href="/places/<%= place["id"] %>" class="list-group-item" style="font-size: 22px;"><%= place["name"] %></a>
   <% end %>
+</div>
 </ul>
 
-<p>
-  <a class="btn btn-primary" href="/places/new">New Place</a>
-</p>
+<div class="mt-auto p-2" style="width: 200px;">
+<a class="btn btn-primary" href="/places/new">New Place</a>
+</div>
