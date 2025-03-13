@@ -6,17 +6,17 @@
 
 <div class="row">
 <% for entry in @entries %>
-<div class="col-md-4">
-<div class="card mb-3">
-<div class="card-body">
-  <h3 class="card-title"><%= entry["title"] %></h3>
-  <h4 class="card-subtitle date" style="font-size: 14px;"><%= entry["occurred_on"] %></h4>
-  <p class="card-text" style="font-size: 18px;"><%= entry["description"] %></p>
-</div>
-</div>
+<div class="col-sm-6 col-md-3">
+  <h2><%= entry["title"] %></h2>
+  <h3 style="font-size: 14px;"><%= entry["occurred_on"] %></h3>
+<% if entry.uploaded_image.attached? %>
+  <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
+<% else %>
+  <img src="<%= entry["image"] %>" class="img-fluid">
+<% end %>
+  <p style="font-size: 18px;"><%= entry["description"] %></p>
 </div>
 <% end %>
-
 <p>
   <a class="btn btn-primary" href="/places">Back to All Places</a>
 </p>
